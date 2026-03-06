@@ -5226,6 +5226,38 @@ prebuilt_rfsa {
 }
 
 cc_prebuilt_binary {
+    name: "batterysecret",
+    owner: "xiaomi",
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/vendor/bin/batterysecret",
+            ],
+            shared_libs: [
+                "libcutils",
+                "libutils",
+                "libbinder",
+                "libbase",
+                "liblog",
+                "libhidlbase",
+                "libhidltransport",
+                "android.hardware.health@1.0",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    strip: {
+        none: true,
+    },
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_binary {
     name: "mi_thermald",
     owner: "xiaomi",
     target: {
